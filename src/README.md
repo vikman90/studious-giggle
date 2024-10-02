@@ -22,3 +22,21 @@ The agent communicates securely with the Wazuh Manager using encrypted channels 
 - **Low resource consumption**: Optimized to work efficiently on different hardware platforms, from servers to IoT devices.
 
 The Wazuh Agent is an essential part of the Wazuh security platform, helping organizations detect and respond to security threats in a scalable manner.
+
+## Agent Architecture
+
+```mermaid
+graph TD
+    FIM(FIM)
+    Inventory(Inventory)
+    Logcollector(Logcollector)
+    Queue(Queue)
+    Communicator(Communicator)
+    CommandHandler(Command Handler)
+
+    FIM --> Queue
+    Inventory --> Queue
+    Logcollector --> Queue
+    Queue --> Communicator
+    Communicator --> CommandHandler
+```
